@@ -1,12 +1,13 @@
-# Windows Spirent TestCenter Application
- 
+# Windows Spirent TestCenter Application Terraform
+
+## Description
+
 Run a Windows Server instance and install the Windows Spirent TestCenter application.
-After the instance has been started connect using Remote Desktop to use Spirent TestCenter. 
+After the instance has been started connect using Remote Desktop to use Spirent TestCenter.
 
-Please obtain a copy of the Windows Spirent TestCenter Application from http://support.spirent.com
-and place it in a directory with files copied to the instances.  Be sure to update the stc_installer variable to point to this directory.
+Please obtain a copy of the Windows Spirent TestCenter Application from http://support.spirent.com.
+Be sure to update the stc_installer variable to point to this file.
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
 | Name | Version |
@@ -33,11 +34,10 @@ and place it in a directory with files copied to the instances.  Be sure to upda
 | instance\_size | The Azure Virtual Machine SKU. | `string` | `"Standard_DS1_v2"` | no |
 | marketplace\_version | Version of the Windows server image. | `string` | `"latest"` | no |
 | mgmt\_plane\_subnet\_id | Management public Azure subnet ID. | `string` | `""` | no |
-| resource\_group\_location | Resource group location in Azure. | `string` | `"West US"` | no |
-| resource\_group\_name | Resource group name in Azure. | `string` | `"default"` | no |
+| resource\_group\_location | Resource group location in Azure. | `string` | `"West US 2"` | no |
+| resource\_group\_name | Resource group name in Azure. | `string` | n/a | yes |
 | stc\_installer | File path to 'Spirent TestCenter Application x64.exe' or 'Spirent TestCenter Application.exe' installer. | `string` | n/a | yes |
-| stc\_windows\_pw | Specify the windows password with a TF\_VAR\_stc\_windows\_pw environment variable. | `string` | n/a | yes |
-| virtual\_network | Azure virtual network name. | `string` | `""` | no |
+| stc\_windows\_pw | Specify the windows password with a TF\_VAR\_stc\_windows\_pw environment variable | `string` | n/a | yes |
 
 ## Outputs
 

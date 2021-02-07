@@ -27,19 +27,12 @@ variable "marketplace_version" {
 variable "resource_group_name" {
   description = "Resource group name in Azure."
   type        = string
-  default     = "default"
 }
 
 variable "resource_group_location" {
   description = "Resource group location in Azure."
   type        = string
-  default     = "West US"
-}
-
-variable "virtual_network" {
-  description = "Azure virtual network name."
-  type        = string
-  default     = ""
+  default     = "West US 2"
 }
 
 variable "mgmt_plane_subnet_id" {
@@ -79,7 +72,7 @@ variable "enable_provisioner" {
 }
 
 variable "ingress_cidr_blocks" {
-  description = "List of management interface ingress IPv4/IPv6 CIDR ranges"
+  description = "List of management interface ingress IPv4/IPv6 CIDR ranges."
   type        = list(string)
 }
 
