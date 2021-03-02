@@ -34,13 +34,12 @@ After the Windows Server instance is running, you can connect to it over Remote 
 |------|---------|
 | terraform | >= 0.13.0 |
 | azurerm | >=2.37.0 |
-| azurerm | >=2.37.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| azurerm | >=2.37.0 >=2.37.0 |
+| azurerm | >=2.37.0 |
 | null | n/a |
 | template | n/a |
 

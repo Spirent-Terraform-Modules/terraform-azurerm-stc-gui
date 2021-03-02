@@ -1,7 +1,6 @@
 ## Example : This Terraform module deploys Spirent TestCenter GUI on a Windows Server from Azure Marketplace image.
 
 provider "azurerm" {
-  version                    = ">=2.37.0"
   skip_provider_registration = "true"
   features {}
 }
