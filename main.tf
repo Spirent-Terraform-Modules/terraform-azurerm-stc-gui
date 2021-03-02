@@ -1,8 +1,3 @@
-provider "azurerm" {
-  version                    = ">=2.37.0"
-  skip_provider_registration = "true"
-  features {}
-}
 
 resource "azurerm_network_security_group" "stc_gui" {
   name                = "nsg-${var.instance_name}"
@@ -55,10 +50,10 @@ resource "azurerm_public_ip" "stc_gui" {
 }
 
 resource "azurerm_network_interface" "mgmt" {
-  count                      = var.instance_count
-  name                       = "nic-mgmt-${var.instance_name}-${count.index}"
-  location                   = var.resource_group_location
-  resource_group_name        = var.resource_group_name
+  count               = var.instance_count
+  name                = "nic-mgmt-${var.instance_name}-${count.index}"
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
 
   # dynamic IP configuration
   ip_configuration {
@@ -100,11 +95,11 @@ resource "azurerm_windows_virtual_machine" "stc_gui" {
 }
 
 data "template_file" "tf" {
-    template = file("${path.module}/install-openssh.ps1")
+  template = file("${path.module}/install-openssh.ps1")
 }
 
 resource "azurerm_virtual_machine_extension" "openssh-extension" {
-  count                 = var.instance_count
+  count                = var.instance_count
   name                 = "extension-${var.instance_name}-${count.index}"
   virtual_machine_id   = element(azurerm_windows_virtual_machine.stc_gui.*.id, count.index)
   publisher            = "Microsoft.Compute"
@@ -122,10 +117,10 @@ resource "azurerm_virtual_machine_extension" "openssh-extension" {
 resource "null_resource" "provisioner" {
   count = var.enable_provisioner ? var.instance_count : 0
   connection {
-    host        = element(azurerm_windows_virtual_machine.stc_gui.*.public_ip_address, count.index)
-    type        = "ssh"
-    user        = var.admin_username
-    password    = var.stc_windows_pw
+    host     = element(azurerm_windows_virtual_machine.stc_gui.*.public_ip_address, count.index)
+    type     = "ssh"
+    user     = var.admin_username
+    password = var.stc_windows_pw
     # work around terraform bug #25634 windows server 2019 ssh server
     script_path = "/Windows/Temp/terraform_%RAND%.bat"
   }
@@ -143,7 +138,7 @@ resource "null_resource" "provisioner" {
   }
 
   # run install
-   provisioner "remote-exec" {
+  provisioner "remote-exec" {
     inline = [
       "powershell -File \"${var.dest_dir}/install-testcenter.ps1\" -Dir \"${var.dest_dir}\" -ExtraDownload 1",
     ]
