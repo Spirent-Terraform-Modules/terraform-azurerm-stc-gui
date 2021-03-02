@@ -1,7 +1,3 @@
-provider "azurerm" {
-  skip_provider_registration = "true"
-  features {}
-}
 
 resource "azurerm_network_security_group" "stc_gui" {
   name                = "nsg-${var.instance_name}"
