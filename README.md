@@ -1,16 +1,16 @@
-# Azure RM Windows Spirent TestCenter Application Terraform
+# Azure RM Windows TestCenter Application Terraform
 
 ## Description
 
-Run a Windows Server instance and install the Windows Spirent TestCenter application.
-After the instance has been started connect using Remote Desktop to use Spirent TestCenter.
+Run a Windows Server instance and install the Windows TestCenter application.
+After the instance has been started connect using Remote Desktop to use TestCenter.
 
-[Spirent TestCenter Virtual](https://github.com/Spirent-terraform-Modules/terraform-azurerm-stcv)
+[TestCenter Virtual](https://github.com/Spirent-terraform-Modules/terraform-azurerm-stcv)
 traffic generator instances can be created via Terraform.
 
 ## Prerequisites
 
-- Obtain a copy of the Windows Spirent TestCenter Application from http://support.spirent.com.
+- Obtain a copy of the Windows TestCenter Application from [VIAVI Technical Support](https://www.viavisolutions.com/en-us/support/customer-support/technical-support).
 Be sure to update the `stc_installer` variable to point to this file.
 
 ## Connect to Windows Server
@@ -23,8 +23,8 @@ After the Windows Server instance is running, you can connect to it over Remote 
 4. Locate and launch the RDP file you downloaded in step 3.
 5. Click _Connect_ and provide the user and password you set in variables `admin_username` and `stc_windows_pw`.
 6. You may receive a security warning about an insecure certificate due to the instance using a self-signed certificate.  Click _Yes_ to continue.
-7. You should now see the Windows desktop with a shortcut to the Spirent TestCenter Application.
-8. Launch the Spirent TestCenter Application.
+7. You should now see the Windows desktop with a shortcut to the TestCenter Application.
+8. Launch the TestCenter Application.
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
