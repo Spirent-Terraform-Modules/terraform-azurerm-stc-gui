@@ -1,4 +1,4 @@
-## Example : This Terraform module deploys Spirent TestCenter GUI on a Windows Server from Azure Marketplace image.
+## Example : This Terraform module deploys TestCenter GUI on a Windows Server from Azure Marketplace image.
 
 provider "azurerm" {
   skip_provider_registration = "true"
